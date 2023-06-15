@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+  db:
+    image: "mongo:latest"
+    container_name: qurb_db
+    networks:
+      shared-net:
+        ipv4_address: 10.0.0.2
+    expose:
+      - 27017
+  backend:
+    build: "./server"
+    image: "deerarif/qurb_serv:1.0"
+    container_name: qurb_serv
+    expose:
+      - 5000
+    networks:
+      shared-net:
+        ipv4_address: 10.0.0.3
+    depends_on:
+      - db
+  react:
+    build: "./client"
+    image: deerarif/qurb_react
+    container_name: qurb_react
+    ports:
+      - "80:3000"
+    networks:
+      shared-net:
+        ipv4_address: 10.0.0.4
+    depends_on:
+      - backend
+networks:
+  shared-net:
+    ipam:
+      config:
+        - subnet: 10.0.0.1/16

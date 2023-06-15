@@ -1,0 +1,11 @@
+FROM node:20
+
+WORKDIR /usr/src/react
+
+COPY . .
+
+ARG LINK_SERV
+
+EXPOSE 3000
+
+CMD ["npm","run","dev"]
