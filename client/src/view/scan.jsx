@@ -6,7 +6,7 @@ const Scan = () => {
   const sumitqrdata = async (token) => {
     await axios({
       method: "put",
-      url: "http://10.0.0.3:5000/api/update/" + token,
+      url: "http://192.168.0.3:5000/api/update/" + token,
     })
       .then((response) => {
         response.status === 200

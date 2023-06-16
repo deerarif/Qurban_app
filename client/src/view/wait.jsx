@@ -10,7 +10,7 @@ const Waiting = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://10.0.0.3:5000/api/antri"); // Replace with your API endpoint
+      const response = await axios.get("http://192.168.0.3:5000/api/antri"); // Replace with your API endpoint
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -20,7 +20,7 @@ const Waiting = () => {
     try {
       await axios({
         method: "post",
-        url: "http://localhost:8000",
+        url: "http://192.168.0.5:8000",
         data: { number: "6282196942074", token: token, nama: nama },
         headers: { "Content-Type": "application/json" },
       });

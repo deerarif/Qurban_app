@@ -11,6 +11,10 @@ const client = new Client({
   authStrategy: new LocalAuth({
     clientId: "client-one",
   }),
+  puppeteer: {
+    executablePath: "/usr/bin/google-chrome",
+    args: ["--disable-gpu", "--no-sandbox"],
+  },
 });
 let status = "";
 client.on("qr", (qr) => {

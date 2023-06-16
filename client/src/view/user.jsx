@@ -16,7 +16,7 @@ const User = () => {
   const DeleteUser = async (ids) => {
     await axios({
       method: "delete",
-      url: "http://10.0.0.3:5000/api/delete/" + ids,
+      url: "http://192.168.0.3:5000/api/delete/" + ids,
     })
       .then((response) => {
         response.status === 200 ? fetchData() : console.log(response);
@@ -33,7 +33,7 @@ const User = () => {
     };
     await axios({
       method: "post",
-      url: "http://10.0.0.3:5000/api",
+      url: "http://192.168.0.3:5000/api",
       data: data,
       headers: { "Content-Type": "application/json" },
     })
@@ -44,7 +44,7 @@ const User = () => {
   };
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://10.0.0.3:5000/api/all"); // Replace with your API endpoint
+      const response = await axios.get("http://192.168.0.3:5000/api/all"); // Replace with your API endpoint
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);

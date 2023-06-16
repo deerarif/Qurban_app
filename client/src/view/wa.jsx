@@ -7,7 +7,7 @@ const Whatsapp = () => {
   const [Stop, setStop] = useState("");
   const getstate = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/check");
+      const response = await axios.get("http://192.168.0.5:8000/check");
       if (response.data.qrcode) {
         setStatus(response.data);
       }

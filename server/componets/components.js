@@ -7,7 +7,7 @@ const sendtoken = async (hp, token) => {
   try {
     await axios({
       method: "post",
-      url: "http://localhost:8000/",
+      url: "http://192.168.0.5:8000/",
       data: { number: hp, token: token },
       headers: { "Content-Type": "application/json" },
     });
